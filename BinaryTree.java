@@ -106,7 +106,7 @@ public class BinaryTree {
 		if (topNode == null) {
 			return 0;
 		} else {
-			return subtreeSize(topNode.left) + subtreeSize(topNode.right);
+			return subtreeSize(topNode.left) + subtreeSize(topNode.right) + 1;
 		}
 	
 	}
@@ -124,8 +124,12 @@ public class BinaryTree {
 		if (topNode == null) {
 			return 0;
 		} else {
-			
+			if ((subtreeMaxDepth(topNode.left) + 1) < (subtreeMaxDepth(topNode.right) + 1)) {
+				return subtreeMaxDepth(topNode.right) + 1;
+		}	else {
+				return subtreeMaxDepth(topNode.left) + 1;
 		}
+	 }
 	}
 	
 }
